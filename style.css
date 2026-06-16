@@ -1,103 +1,82 @@
-/* =================================================================
-   1. CORES AUTOMÁTICAS (LIGHT MODE / DARK MODE)
-   ================================================================= */
-
-/* Tema Padrão: Modo Claro (Light Mode) */
 :root {
-    --cor-fundo-tela: #f0f2f5;      /* Fundo da tela inteira (cinza claro) */
-    --cor-fundo-chat: #ffffff;      /* Fundo da caixa do chat (branco) */
-    --cor-texto: #111b21;           /* Cor das letras (quase preto) */
-    --cor-borda: #e9edef;           /* Linhas de divisão (cinza bem claro) */
-    --cor-botao: #00a884;           /* Cor do botão enviar (verde) */
-    --cor-botao-texto: #ffffff;     /* Cor do texto do botão (branco) */
+    --cor-fundo-tela: #f0f2f5;
+    --cor-fundo-chat: #ffffff;
+    --cor-texto: #111b21;
+    --cor-borda: #e9edef;
+    --cor-botao: #00a884;
+    --cor-botao-texto: #ffffff;
 }
 
-/* Se o sistema da pessoa estiver em Modo Escuro (Dark Mode) */
 @media (prefers-color-scheme: dark) {
     :root {
-        --cor-fundo-tela: #0b141a;  /* Fundo da tela inteira (escuro) */
-        --cor-fundo-chat: #111b21;  /* Fundo da caixa do chat (grafite) */
-        --cor-texto: #e9edef;       /* Cor das letras (quase branco) */
-        --cor-borda: #222e35;       /* Linhas de divisão (cinza escuro) */
-        --cor-botao: #00a884;       /* O botão continua verde */
+        --cor-fundo-tela: #0b141a;
+        --cor-fundo-chat: #111b21;
+        --cor-texto: #e9edef;
+        --cor-borda: #222e35;
+        --cor-botao: #00a884;
         --cor-botao-texto: #ffffff; 
     }
 }
 
-/* =================================================================
-   2. ESTILIZAÇÃO DA TELA E DA CAIXA DO CHAT
-   ================================================================= */
-
-/* Configurações do fundo do navegador */
 body {
     font-family: Arial, sans-serif;
     background-color: var(--cor-fundo-tela);
     color: var(--cor-texto);
     margin: 0;
     display: flex;
-    justify-content: center; /* Centraliza o chat deitado (horizontal) */
-    align-items: center;     /* Centraliza o chat em pé (vertical) */
-    height: 100vh;           /* Faz o fundo ocupar a altura total da tela */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-/* A caixa que segura todo o nosso chat */
 .chat-container {
     width: 100%;
-    max-width: 450px;       /* Largura máxima para parecer um celular */
-    height: 80vh;           /* Altura ocupando 80% da tela */
+    max-width: 450px;
+    height: 80vh;
     background-color: var(--cor-fundo-chat);
     border: 1px solid var(--cor-borda);
-    border-radius: 10px;    /* Deixa as pontas da caixa arredondadas */
+    border-radius: 10px;
     display: flex;
-    flex-direction: column; /* Organiza o painel em cima e os inputs embaixo */
-    overflow: hidden;       /* Garante que nada saia para fora das bordas */
+    flex-direction: column;
+    overflow: hidden;
 }
 
-/* =================================================================
-   3. PAINEL DE MENSAGENS E ENTRADA DE TEXTO
-   ================================================================= */
-
-/* Onde o texto do robô e do usuário se acumula */
 #painel {
-    flex: 1;                /* Faz o painel ocupar todo o espaço restante do topo */
+    flex: 1;
     padding: 20px;
-    overflow-y: auto;       /* Se tiver muito texto, cria uma barra de rolagem automática */
-    line-height: 1.5;       /* Dá um espaço confortável entre as linhas de texto */
+    overflow-y: auto;
+    line-height: 1.5;
     font-size: 15px;
 }
 
-/* A barra inferior onde o usuário digita */
 .campo-enviar {
-    display: flex;          /* Coloca o input e o botão um do lado do outro */
+    display: flex;
     padding: 10px;
     background-color: var(--cor-fundo-chat);
-    border-top: 1px solid var(--cor-borda); /* Linha fina separando o chat do input */
+    border-top: 1px solid var(--cor-borda);
 }
 
-/* A caixinha de texto */
 #campoTexto {
-    flex: 1;                /* O input estica para ocupar o máximo de espaço na barra */
+    flex: 1;
     padding: 12px;
     border: 1px solid var(--cor-borda);
-    border-radius: 20px;    /* Deixa a caixinha redonda estilo bloco de notas/whats */
+    border-radius: 20px;
     background-color: var(--cor-fundo-tela);
     color: var(--cor-texto);
-    outline: none;          /* Remove aquela borda azul feia quando clicamos para digitar */
+    outline: none;
 }
 
-/* O botão de enviar */
 #botaoEnviar {
     background-color: var(--cor-botao);
     color: var(--cor-botao-texto);
     border: none;
     padding: 0 20px;
-    margin-left: 8px;       /* Empurra o botão um pouquinho para a direita, desgrudando do input */
-    border-radius: 20px;    /* Arredonda o botão */
-    cursor: pointer;        /* Faz o ponteiro do mouse virar a "mãozinha" de clique */
+    margin-left: 8px;
+    border-radius: 20px;
+    cursor: pointer;
     font-weight: bold;
 }
 
-/* Efeito visual quando o mouse passa por cima do botão */
 #botaoEnviar:hover {
-    opacity: 0.9;           /* Dá uma leve sumida na cor para o usuário saber que é clicável */
+    opacity: 0.9;
 }
